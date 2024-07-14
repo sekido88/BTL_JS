@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block css %} {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    
+    {% block js %} {% endblock %}
+    <title id="title">{% block title %} {% endblock %}</title>
+</head>
+{% block style %} 
+{% endblock %}
+<body>
+        <div class="container">
+                <div class="navbar">
+                    <div class="navbar-menu-name">
+                        <div id="buncha">BUNCHA</div>
+                        <div id="restaurant">R E S T A U R A N T</div>
+                    </div>
+    
+                    <div class="navbar-menu">
+                        <a href="{{ url_for('home') }}" id="navbar-menu-home" class="navbar-menu-a">HOME</a>
+                        <a href="{{ url_for('menu_order') }}" id="navbar-menu-munu-order" class="navbar-menu-a">MENU & ORDER</a>
+                        <a href="{{ url_for('about_us') }}" id="navbar-menu-about-us" class="navbar-menu-a">ABOUT US</a>
+                        <a href="{{ url_for('find_us') }}" id="navbar-menu-find-us" class="navbar-menu-a">FIND US</a>
+                        <a href="{{ url_for('my_order') }}" id="navbar-menu-my-order" class="navbar-menu-a">MY ORDER</a>
+                        <a href="{{ url_for('my_reservation') }}" id="navbar-menu-my-order" class="navbar-menu-a">MY RESERVATION</a>
+                    </div>
+    
+                    <div class="navbar-function">
+                        <div id = "reservation">RESERVATION</div>
+                        <!-- <div id = "order">MY ORDER</div> -->
+                    </div>
+    
+                    <div class="navbar-find-us">
+                        <p>FIND US</p>
+                        <p>Ha Dong,Ha Noi</p>
+                        <p>Tel : 0989988888</p>
+                    </div>
+    
+                </div> 
+            <div class="content">
+                {% block content %}
+                
+                {% endblock %}
+            </div>
+        </div>
+        <div class="fuction-restaurant" style="display: none;">
+            <div id="function-reservation">
+                <div id="title-function-reservation">
+                    BOOKING
+                    <button id="button-title-function-reservation">X</button>
+                </div>
+                <div id="input-function-reservation">
+                    <form id="form-input-function-reservation">
+                        <div class="input-function-reservation">
+                            <label>Name*</label>
+                            <input type="text" name="name" id="reservation-name"required>
+                        </div>
+                        <div class="input-function-reservation">
+                            <label>Email*</label>
+                            <input type="email" name="email" id="reservation-email"required>
+                        </div>
+                        <div class="input-function-reservation">
+                            <label>Phone*</label>
+                            <input type="tel" name="phone" id="reservation-tel" required>
+                        </div>
+                        <div class="input-function-reservation">
+                            <label>Date*</label>
+                            <input type="date" name="date" id="reservation-date"required>
+                        </div>
+                        <div class="input-function-reservation">
+                            <label>Time*</label>
+                            <input type="time" name="time" id="reservation-time" required>
+                        </div>
+                        <div class="input-function-reservation">
+                            <label>Seats*</label>
+                            <select name="seats" id="reservation-seats"required>
+                                <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3">3 people</option>
+                                    <option value="4">4 people</option>
+                                    <option value="5">5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7 people</option>
+                                    <option value="8">8 people</option>
+                                    <option value="9">9 people</option>
+                                    <option value="10">10 people</option>
+                                    <option value="11">11 people</option>
+                                    <option value="12">12 people</option>
+                                    <option value="All">ALL</option>
+                            </select>
+                        </div>
+                      
+                    </form>
+                </div>
+                <div id="book-function-reservation">
+                    <div id="book-function-reservation-textarea">
+                        <label for="Special Requests">Special Requests</label>
+                        <textarea  name="textarea" id="reservation-textarea" rows="4" cols="50">
+                        </textarea>
+                    </div>
+                    <div id="book-function-reservation-submit">
+                        <button type="submit" id="book-function-reservation-button-submit">BOOK</button>
+                    </div>
+        
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="confirm" >
+            <div class="confirm-el1">Bạn có chắc muốn xác nhận ?</div>
+            <div class="confirm-el2">
+                <div id="xacnhan">Có</div>
+                <div id="huybo">Chưa</div>
+            </div>
+        </div>
+
+</body>
+</html>

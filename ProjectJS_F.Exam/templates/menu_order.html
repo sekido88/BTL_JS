@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% block title %}MENU & ORDER{% endblock %}
+
+{% block js %} <script src="{{ url_for('static', filename='js/menu_order.js') }}"></script>{% endblock %}
+
+{% block css %} 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu_order.css') }}">
+{% endblock %}
+
+{% block style %} 
+<style>
+.welcome {
+        background-image: url('{{ url_for('static', filename='img/menu_order.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        display:flex;
+        width: 100%;
+        height: 600px; 
+        position: relative;
+        text-align: center;
+        justify-content:center;
+        margin: 5px 5px 5px 5px;
+        border-radius: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="slider-container">
+        <img src="{{ url_for('static', filename='img/menu_order.jpg') }}" alt="Menu Background" class="slider-image active">
+        <div class="welcome-text">
+            <h1>OUR MENU</h1>
+        </div>
+    </div>
+    <div class="signature_dishes">
+        <div class="header">
+            Signature Dishes
+        </div>
+        <div class="signature_dishes_img">
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_2.jpg') }}" alt="">
+                <div class="food_name">
+                    BUN CHA THUONG
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_1.jpg') }}" alt="">
+                <div class="food_name">
+                    BUN CHA HUONG LIEN
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_3.jpg') }}" alt="">
+                <div class="food_name">
+                    BUN CHA PHO CO
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_4.jpg') }}" alt="">
+                <div class="food_name">
+                   BUN CHA DAC BIET
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_drink_8.jpg') }}" alt="">
+                <div class="food_name">
+                BUOM DEM
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_drink_7.jpg') }}" alt="">
+                <div class="food_name">
+                   DUA HONG
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_drink_6.jpg') }}" alt="">
+                <div class="food_name">
+                  BIA
+                </div>
+            </div>
+            <div>
+                <img class="clip_path"   src="{{ url_for('static', filename='img/product_item_drink_5.jpg') }}" alt="">
+                <div class="food_name">
+                MAY DEN
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list_product">
+        <div class="list_name">
+            <div class="title_main_product" >BUNCHA</div>
+            <div class="title_main_product" >DRINKS</div>
+        </div>
+
+        <div class="list_product_content">
+            <div class="food_item">
+                {% for product in products if product.category == 'food' %}
+                <div class="product_item" data-product-id="{{ product.product_id }}">
+                    <img class="clip_path2" src="{{ url_for('static', filename=product.image_url) }}" alt="">
+                    <div class="price">${{ product.price }}</div>
+                    <div class="price_content">
+                        <h4>{{ product.product_name }}</h4>
+                        <p>{{ product.description }}</p>
+                    </div>
+                    <button class="add_to_cart" data-id="{{ product.product_id }}">ADD</button>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="drink_item">
+                {% for product in products if product.category == 'drink' %}
+                <div class="product_item" data-product-id="{{ product.product_id }}">
+                    <img class="clip_path2" src="{{ url_for('static', filename=product.image_url) }}" alt="">
+                    <div class="price">${{ product.price }}</div>
+                    <div class="price_content">
+                        <h4>{{ product.product_name }}</h4>
+                        <p>{{ product.description }}</p>
+                    </div>
+                    <button class="add_to_cart" data-id="{{ product.product_id }}">ADD</button>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+    <div class="background_cart_content" style="display: none;">
+        <div class="container_cart">
+            <div class="title_cart">
+                <div>Dish Order</div>
+                <input type="number" id="table-number" placeholder="Table number" min="0" required>
+            </div>
+            <div class="cart_content">
+            </div>
+            <div class="cart_subtotal_order">
+                <div class="total_price">
+                    <span>Sultotal : </span>
+                    <span class="total_price_value">$0</span>
+                </div>
+                <div class="cart_order">
+                    <button id="cart_order">ORDER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+{% endblock %}

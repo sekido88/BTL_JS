@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block js %} 
+<script src="{{ url_for('static', filename='js/my_order.js') }}"></script>
+{% endblock %}
+{% block css %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_order.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div id="content__content">
+      <div id="title-row">
+          <div class="value">ORDER ID</div>
+          <div class="value">TABLE NUMBER</div>
+          <div class="value">ORDER DATE</div>
+          <div class="value">TOTAL AMOUNT</div>
+          <div class="value">STATUS</div>
+          <div class="value">DETAILS</div>
+      </div>
+      <div id="no-orders" style="display: none;">Bạn chưa có đơn đặt đồ ăn nào.</div>
+      <div id="order-details"></div>
+  </div>
+</div>
+{% endblock %}

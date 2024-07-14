@@ -1,0 +1,74 @@
+-- Tạo bảng products
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    image_url VARCHAR(255)
+);
+
+-- Tạo bảng customers
+CREATE TABLE customers (
+    customer_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(20)
+);
+
+-- Tạo bảng orders
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INT NOT NULL REFERENCES customers(customer_id),
+    order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Pending',
+    table_number INT
+);
+-- Tạo bảng order_details
+CREATE TABLE order_details (
+    order_detail_id SERIAL PRIMARY KEY,
+    order_id INT NOT NULL REFERENCES orders(order_id),
+    product_id INT NOT NULL REFERENCES products(product_id),
+    quantity SMALLINT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'pending'
+);
+-- Tạo bảng reservations
+CREATE TABLE reservations (
+    reservation_id SERIAL PRIMARY KEY,
+    customer_id INT NOT NULL REFERENCES customers(customer_id),
+    reservation_date DATE NOT NULL,
+    reservation_time TIME NOT NULL,
+    submission_time TIME NOT NULL,
+    num_guests INT NOT NULL,
+    special_requests TEXT,
+    status VARCHAR(20) NOT NULL
+);
+
+
+INSERT INTO products (product_name, description, price, image_url, category)
+VALUES 
+-- Món ăn
+('Bun Cha Hung Manh', 'Thit, carot, thit nuong', 5, 'img/product_item_1.jpg', 'food'),
+('Bun Cha Huong Lien', 'Thit, carot, thit nuong', 4, 'img/product_item_2.jpg', 'food'),
+('Bun Cha Pho Co', 'Thit, carot, thit nuong', 4, 'img/product_item_3.jpg', 'food'),
+('Bun Cha Kinh Ky', 'Thit, carot, thit nuong', 3, 'img/product_item_4.jpg', 'food'),
+('Nem Ran', 'Thit, carot, moc nhi, mien', 2, 'img/home_item_1.jpg', 'food'),
+('Cha Tron', 'Thit, carot, thit nuong', 2, 'img/home_item_2.jpg', 'food'),
+('Thit Kho', 'Thit, ot, hanh', 5, 'img/home_item_3.jpg', 'food'),
+('Dau Tam Hanh', 'Dau, hanh, sot', 5, 'img/home_item_4.jpg', 'food'),
+('Banh Mi', 'Thit, rau dua, sot', 1, 'img/product_item_5.jpg', 'food'),
+('Pho', 'Thit, chanh, ot', 2, 'img/product_item_6.jpg', 'food'),
+('Com Tam', 'Thit, trung, hanh phi, carot, canh', 3, 'img/product_item_7.jpg', 'food'),
+('Khau Nhuc', 'Thit, dua', 10, 'img/product_item_8.jpg', 'food'),
+
+-- Đồ uống
+('Buom Dem', 'Hong tra, hoa loa ken', 6, 'img/product_item_drink_8.jpg', 'drink'),
+('Cafe', 'Cafe Trung Nguyen', 4, 'img/product_item_drink_1.jpg', 'drink'),
+('Nuoc Chanh', 'Duong, da, chanh', 3, 'img/product_item_drink_2.jpg', 'drink'),
+('Nuoc Bien Chanh', 'Duong, chanh, mau', 5, 'img/product_item_drink_3.jpg', 'drink'),
+('Nuoc Dau Tay', 'Duong, dau tay', 4, 'img/product_item_drink_4.jpg', 'drink'),
+('Nuoc Nho', 'Duong, nho', 3, 'img/product_item_drink_5.jpg', 'drink'),
+('Bia', 'Lua mach', 7, 'img/product_item_drink_6.jpg', 'drink'),
+('Nuoc Dua Hau', 'Duong, dua hau', 4, 'img/product_item_drink_7.jpg', 'drink');

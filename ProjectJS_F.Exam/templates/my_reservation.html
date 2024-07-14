@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}My Reservations{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/my_reservation.css') }}">
+{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename='js/my_reservation.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">My Reservations</h1>
+
+    <div class="content__query">
+        <div id="content__search">
+            <input type="text" placeholder="Search reservations...">
+            <button type="button" id="search-btn">Search</button>
+        </div>
+
+        <div id="content">
+            <div id="title-row">
+                <div class="value">Name</div>
+                <div class="value">Email</div>
+                <div class="value">Order Date</div>
+                <div class="value">Seats</div>
+                <div class="value">Special Requests</div>
+                <div class="value">Status</div>
+            </div>
+
+            <div id="reservations-table">
+             
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

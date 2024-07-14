@@ -1,0 +1,76 @@
+{% extends 'base.html'%}
+
+{% block title %}ABOUT US{% endblock %}
+{% block css %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about_us.css') }}">
+{% endblock %}
+
+{% block style %} 
+<style>
+.welcome {
+    background-image: url('{{ url_for('static', filename='img/about_us.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    width: 100%;
+    height: 600px; 
+    position: relative;
+    text-align: center;
+    justify-content:center;
+    margin: 5px 5px 5px 5px;
+    border-radius: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="welcome" >
+        <div>
+            <h1>ABOUT US</h1>
+        </div>
+    </div>
+
+    <div class="value">
+        <div class="header">VALUE</div>   
+        <div class="value-content">
+          <p>Savor the harmonious blend of grilled pork patties, fragrant herbs, and tantalizing nuoc cham – a symphony of flavors that transports you to the vibrant streets of Hanoi, where every bite of <span class="highlight">Bun Cha</span> is a culinary celebration.</p>
+        </div>
+    </div>
+
+    <div class="value-img">
+           <img src="{{ url_for('static', filename='img/product_item_1.jpg') }}" alt="">
+           <img src="{{ url_for('static', filename='img/product_item_2.jpg') }}" alt="">
+           <img src="{{ url_for('static', filename='img/product_item_3.jpg') }}" alt="">
+           <img src="{{ url_for('static', filename='img/product_item_4.jpg') }}" alt="">
+    </div>
+
+    <div class="value-location">
+        <div class="header">LOCATIONS</div>
+        <div class="locations">
+            <div>
+                <h3>Bun Cha A</h3>
+                <p class="location">Ngõ 39 Đ. Đình Thôn, Mỹ Đình, Nam Từ Liêm, Hà Nội, Việt Nam</p>
+                <p class="tel">Tel : 09888899999</p>
+                <a target="_blank" href="https://www.google.com/maps/place/B%C3%BAn+Ch%E1%BA%A3+Gia+%C4%90%C3%ACnh/@21.0189879,105.7763501,17z/data=!4m6!3m5!1s0x313455929a5d838d:0xd36cbef0b50eb0bc!8m2!3d21.0189879!4d105.778925!16s%2Fg%2F11j36n6tc0?hl=vi-VN&entry=ttu">GET DIRECTIONS -></a>
+            </div>
+            <div>
+                <h3>Bun Cha B</h3>
+                <p class="location">34 P. Hàng Giấy, Hàng Mã, Hoàn Kiếm, Hà Nội, Việt Nam</p>
+                <p class="tel">Tel : 09888899996</p>
+                <a target="_blank" href="https://www.google.com/maps/place/B%C3%BAn+ch%E1%BA%A3+G%E1%BA%A7m+C%E1%BA%A7u/@21.0390856,105.8455105,17z/data=!3m1!4b1!4m6!3m5!1s0x3135ab997b4b8439:0x5167e1049ad6a0d9!8m2!3d21.0390856!4d105.8480854!16s%2Fg%2F11krmsl5lw?hl=vi-VN&entry=ttu">GET DIRECTIONS -></a>
+            </div>
+            <div>
+                <h3>Bun Cha C</h3>
+                <p class="location">1 P. Hàng Mành, Hàng Gai, Hoàn Kiếm, Hà Nội, Việt Nam</p>
+                <p class="tel">Tel : 09888899997</p>
+                <a target="_blank" href="https://www.google.com/maps/place/B%C3%BAn+Ch%E1%BA%A3+%C4%90%E1%BA%AFc+Kim/@21.0322493,105.8456346,17z/data=!3m1!4b1!4m6!3m5!1s0x3135abbe40899a17:0x9aa20a2ad5a0f0e4!8m2!3d21.0322493!4d105.8482095!16s%2Fg%2F1thpz5ms?hl=vi-VN&entry=ttu">GET DIRECTIONS -></a>
+            </div>
+            <div>
+                <h3>Bun Cha D</h3>
+                <p class="location">24 P. Lê Văn Hưu, Phan Chu Trinh, Hai Bà Trưng, Hà Nội, Việt Nam</p>
+                <p class="tel">Tel : 09888899998</p>
+                <a target="_blank" vhref="https://www.google.com/maps/place/B%C3%BAn+ch%E1%BA%A3+H%C6%B0%C6%A1ng+Li%C3%AAn/@21.0181373,105.8513177,17z/data=!3m1!4b1!4m6!3m5!1s0x3135abf2a4ba685d:0x7e67963f30fa90e7!8m2!3d21.0181373!4d105.8538926!16s%2Fg%2F1hm5x9fjz?hl=vi-VN&entry=ttu">GET DIRECTIONS -></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

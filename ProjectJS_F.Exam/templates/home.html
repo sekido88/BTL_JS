@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+
+{% block title %}HOME{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="slider-container" id="sliderContainer">
+        <img src="{{ url_for('static', filename='img/background2.jpeg') }}" alt="Slide 1" class="slider-image active">
+        <img src="{{ url_for('static', filename='img/product_item_1.jpg') }}" alt="Slide 2" class="slider-image">
+        <img src="{{ url_for('static', filename='img/product_item_2.jpg') }}" alt="Slide 3" class="slider-image">
+        <img src="{{ url_for('static', filename='img/product_item_3.jpg') }}" alt="Slide 4" class="slider-image">
+        <div class="welcome-text">
+            <h1>WELCOME TO BUNCHA</h1>
+        </div>
+        <div class="dot-container" id="dotContainer"></div>
+    </div>
+
+    <div class="history">
+        <div class="history-quote">
+            <p id="history-1">UNTIL I DISCOVERED COOKING I WAS NEVER REALLY INTERESTED IN ANYTHING</p>
+            <p id="history-2">OUR FOUNDER JOHN PHILLIPE</p>
+        </div>
+        <div class="history-content">
+            <h2>OUR STORY</h2>
+            <p>
+                Hanoi Bun Cha Huong Restaurant was founded in 1990 by Mr. and Mrs. Nguyen Van Hai and Pham Thi Thu. Starting out as just a small restaurant on Hang Manh old street with a few tables, Mr. and Mrs. Hai - Thu devoted themselves to cooking delicious bowls of bun cha according to family secrets.
+                The unique bun cha dish with soft grilled pork, fragrant spring rolls, sweet and spicy fish sauce mixed with fresh vermicelli and herbs has quickly conquered Hanoi diners. Soon, the small bun cha restaurant became a familiar address for old town residents and tourists from far and wide.
+                In 1995, Mr. and Mrs. Hai expanded the restaurant and moved to a more spacious location at 36 Hang Bac street. The restaurant space is decorated in the style of old Hanoi with brick walls, tile roof, rustic wooden tables and chairs. The menu is also supplemented with many traditional dishes such as spring rolls, pho rolls, and fish cakes.
+                Over more than 30 years, Bun Cha Huong Hanoi has become a famous culinary brand and a destination not to be missed when visiting the old town. The traditional bun cha recipe and rich flavor have been preserved for many generations, becoming the pride of the Nguyen family.
+            </p>
+        </div>
+    </div>
+
+    <div class="delicious">
+        <div class="header">DELICIOUS</div>
+        <div class="value-img">
+            <img src="{{ url_for('static', filename='img/product_item_1.jpg') }}" alt="Product 1">
+            <img src="{{ url_for('static', filename='img/product_item_2.jpg') }}" alt="Product 2">
+            <img src="{{ url_for('static', filename='img/product_item_3.jpg') }}" alt="Product 3">
+            <img src="{{ url_for('static', filename='img/product_item_4.jpg') }}" alt="Product 4">
+        </div>
+        <div class="value-img">
+            <img src="{{ url_for('static', filename='img/home_item_1.jpg') }}" alt="Home 1">
+            <img src="{{ url_for('static', filename='img/home_item_2.jpg') }}" alt="Home 2">
+            <img src="{{ url_for('static', filename='img/home_item_3.jpg') }}" alt="Home 3">
+            <img src="{{ url_for('static', filename='img/home_item_4.jpg') }}" alt="Home 4">
+         </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+- đặt món tại chính nhà hàng
+- đầu bếp xem danh sách 
+- giới thiệu nhà hàng 
+- menu (đồ ăn) // chuyển ảnh vv 
+- xem menu có kèm them ảnh 
+- hóa đơn từng món 
+

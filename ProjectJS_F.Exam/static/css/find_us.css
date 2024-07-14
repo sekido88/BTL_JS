@@ -1,0 +1,118 @@
+.welcome h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 10;
+    width: 90%;
+    max-width: 800px;
+}
+.welcome  div{
+    backdrop-filter: blur(1px);
+    width: 100%;
+}
+.header {
+    font-size: 36px;
+    font-weight: 600;
+    color:#1A3853; 
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  .value-location {
+    margin: 20px auto;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.locations {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.locations > div {
+    flex: 1;
+    min-width: 0; 
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.locations > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.locations h3 {
+    color: #1A3853;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #D1A054;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location {
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.tel {
+    font-weight: bold;
+    color: #D1A054;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.locations a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #D1A054;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.locations a:hover {
+    background-color: #1A3853;
+}
+
+@media (max-width: 1024px) {
+    .locations {
+        flex-wrap: wrap;
+    }
+    .locations > div {
+        flex-basis: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .locations > div {
+        flex-basis: 100%;
+    }
+}

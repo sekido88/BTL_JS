@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>reservation</title> {% endblock %}
+
+   
+    {% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">{% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+
+    {% block js %} {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{{ url_for('admin') }}">RESERVATION</a>
+                    <ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ url_for('admin_orders') }}"><i class="icon-ecommerce"></i>ORDER</a>
+                </li>
+                <li>
+                    <button onclick="Logout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+        <div id="content">
+            {% block content %}
+                <div id="content__content">
+                    <div id="function-content">
+                        <form id="date-range-form">
+                            <label for="start-date">Start date:</label>
+                            <input type="date" id="start-date" name="start-date">
+                            <label for="end-date">End date:</label>
+                            <input type="date" id="end-date" name="end-date">
+                            <button type="submit" id="search-button">Tìm kiếm</button>
+                        </form>
+                      
+                    </div>
+                    <div id="title-row">
+                        <div class="value">NAME</div>
+                        <div class="value">EMAIL</div>
+                        <div class="value">RESERVATION DATE</div>
+                        <div class="value">SEATS</div>
+                        <div class="value">SPECIAL REQUESTS</div>
+                        <div class="value">STATUS</div>
+                        <div class="value">CHANGE STATUS</div>
+                    </div>
+                    <div id="reservations-table">
+                        {% for reservation in reservations %}
+                        <div class="data-row" data-reservation-id="{{ reservation.id }}">
+                            <div class="value">{{ reservation.name }}</div>
+                            <div class="value">{{ reservation.email }}</div>
+                            <div class="value">{{ reservation.date }}<br>{{ reservation.time }}</div>
+                            <div class="value">{{ reservation.seats }}</div>
+                            <div class="value">{{ reservation.special_requests }}</div>
+                            <div class="value {{ reservation.status.lower() }}">{{ reservation.status }}</div>
+                            <div class="value">
+                                <button class="button_accept" data-action="accept">AC</button>
+                                <button class="button_cancel" data-action="cancel">CE</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

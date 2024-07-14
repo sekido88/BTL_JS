@@ -1,0 +1,334 @@
+/* Reset và thiết lập các giá trị mặc định */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Bố cục chính */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 15%;
+    background-color: #333;
+    padding: 20px;
+    position: fixed;
+    top: 0; /* Đặt thanh navbar ở trên đầu trang */
+    left: 0; /* Đặt thanh navbar ở bên trái */
+    height: 100vh; /* Đặt chiều cao của thanh navbar bằng chiều cao của viewport */
+    width: 15%;
+    background-color: #333;
+    padding: 20px;
+    position: fixed; /* Thay đổi từ unset thành fixed */
+    height: 100%;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
+}
+
+.sidebar ul ul {
+    margin-top: 10px;
+    margin-left: 20px;
+    display: none;
+}
+
+.sidebar ul li:hover>ul {
+    display: block;
+}
+
+.sidebar button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #d32f2f;
+}
+
+/* Phần nội dung */
+#content {
+    display: flex;
+    width: 85%;
+    height: 100vh;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left: 15%; /* Đẩy nội dung sang phải để tránh bị che bởi thanh navbar */
+}
+
+#content__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-sizing: border-box;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Phần chức năng */
+#function-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#function-sort-by {
+    display: flex;
+    width: 120px;
+    height: 30px;
+}
+
+#select-fuction-sort-by {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-family: inherit;
+}
+
+#title-row {
+    display: flex;
+    width: 100%;
+    height: 8%;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.value {
+    flex: 1;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+#orders-table {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.data-row {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.data-row:hover {
+    background-color: #f5f5f5;
+}
+
+.data-row .value {
+    display: flex;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.button_show_more {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.button_show_more:hover {
+    background-color: #45a049;
+}
+
+.order-details {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 32px 8px 12px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+}
+
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 35px 10px 15px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select::after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #666;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+select option:hover {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+select option:checked {
+    background-color: #e0e0e0;
+    color: #333;
+}
+select:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+select:hover {
+    border-color: #2196f3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+select:hover::after {
+    color: #2196f3;
+}
+.status-value {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.pending {
+    background-color: #ffc107; /* Màu vàng */
+    color: #333;
+}
+
+.preparing {
+    background-color: #2196f3; /* Màu xanh da trời */
+    color: #fff;
+}
+
+.completed {
+    background-color: #4caf50; /* Màu xanh lá cây */
+    color: #fff;
+}
+
+.canceled {
+    background-color: #f44336; /* Màu đỏ */
+    color: #fff;
+}
+#date-range-form {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#date-range-form label {
+    margin-right: 10px;
+}
+
+#date-range-form input[type="date"] {
+    margin-right: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#date-range-form button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#date-range-form button:hover {
+    background-color: #45a049;
+}

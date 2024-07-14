@@ -1,0 +1,85 @@
+{% extends 'admin.html' %}
+{% block title %}ORDER{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/admin_order.js') }}"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_order.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="content__content">
+    <form id="date-range-form">
+        <label for="start-date">Start date:</label>
+        <input type="date" id="start-date" name="start-date" required>
+        <label for="end-date">End date</label>
+        <input type="date" id="end-date" name="end-date" required>
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    <div class="content_data_order">
+        <div id="title-row">
+            <div class="value">ORDER ID</div>
+            <div class="value">TABLE NUMBER</div>
+            <div class="value">ORDER DATE</div>
+            <div class="value">TOTAL AMOUNT</div>
+            <div class="value">STATUS</div>
+            <div class="value">CHANGE STATUS</div>
+            <div class="value">DETAILS</div>
+        </div>
+        <div id="orders-table">
+            {% for order in orders %}
+            <div class="data-row">
+                <div class="value">{{ order.order_id }}</div>
+                <div class="value">{{ order.table_number }}</div>
+                <div class="value">{{ order.date }}</div>
+                <div class="value">{{ order.total_amount }}</div>
+                <div class="value">
+                    <span class="status-value {{ order.status.lower() }}">{{ order.status }}</span>
+                </div>
+                <div class="value">
+                    <select class="order-status-select">
+                        <option value="Pending" {% if order.status == 'Pending' %}selected{% endif %}>Pending</option>
+                        <option value="Preparing" {% if order.status == 'Preparing' %}selected{% endif %}>Preparing</option>
+                        <option value="Completed" {% if order.status == 'Completed' %}selected{% endif %}>Completed</option>
+                        <option value="Canceled" {% if order.status == 'Canceled' %}selected{% endif %}>Canceled</option>
+                    </select>
+                </div>
+                <div class="value">
+                    <button class="button_show_more" data-order-id="{{ order.order_id }}">Show More</button>
+                </div>
+            </div>
+            <div class="order-details" data-order-id="{{ order.order_id }}" style="display: none;">
+                <div id="title-row">
+                    <div class="value">DISHES</div>
+                    <div class="value">NAME</div>
+                    <div class="value">QUANTITY</div>
+                    <div class="value">PRICE</div>
+                    <div class="value">STATUS</div>
+                    <div class="value">CHANGE STATUS</div>
+                </div>
+                {% for item in order.items %}
+                <div class="data-row" data-order-detail-id="{{ item.order_detail_id }}">
+                    <div class="value"><img src="{{ url_for('static', filename=item.image_url) }}" alt="{{ item.product_name }}" width="50px" height="50px"></div>
+                    <div class="value">{{ item.product_name }}</div>
+                    <div class="value">{{ item.quantity }}</div>
+                    <div class="value">{{ item.price }}</div>
+                    <div class="value"><span class="status-value {{ item.status.lower() }}">{{ item.status }}</span></div>
+                    <div class="value">
+                        <select class="item-status-select">
+                            <option value="Pending" {% if item.status == 'Pending' %}selected{% endif %}>Pending</option>
+                            <option value="Preparing" {% if item.status == 'Preparing' %}selected{% endif %}>Preparing</option>
+                            <option value="Completed" {% if item.status == 'Completed' %}selected{% endif %}>Completed</option>
+                            <option value="Canceled" {% if item.status == 'Canceled' %}selected{% endif %}>Canceled</option>
+                        </select>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content_data_details"></div>
+</div>
+{% endblock %}
